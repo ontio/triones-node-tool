@@ -4,13 +4,13 @@ import (
 	"bytes"
 
 	log4 "github.com/alecthomas/log4go"
-	"github.com/ontio/ont-relayer/common"
 	sdk "github.com/ontio/ontology-go-sdk"
-	"github.com/ontio/ontology-tool/config"
 	ontcommon "github.com/ontio/ontology/common"
 	"github.com/ontio/ontology/errors"
 	"github.com/ontio/ontology/smartcontract/service/native/governance"
 	"github.com/ontio/ontology/smartcontract/service/native/utils"
+	"github.com/ontio/triones-node-tool/common"
+	"github.com/ontio/triones-node-tool/config"
 )
 
 var OntIDVersion = byte(0)
@@ -125,7 +125,10 @@ func getPeerPoolMap(ontSdk *sdk.OntologySdk) (*governance.PeerPoolMap, error) {
 	peerPoolMap := &governance.PeerPoolMap{
 		PeerPoolMap: make(map[string]*governance.PeerPoolItem),
 	}
-	viewBytes := governance.GetUint32Bytes(view)
+	viewBytes, err := governance.GetUint32Bytes(view)
+	if err != nil {
+		return nil, errors.NewDetailErr(err, errors.ErrNoCode, "governance.GetUint32Bytes")
+	}
 	key := common.ConcatKey([]byte(governance.PEER_POOL), viewBytes)
 	value, err := ontSdk.GetStorage(contractAddress.ToHexString(), key)
 	if err != nil {

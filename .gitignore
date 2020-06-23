@@ -7,6 +7,5 @@ build/
 *.rej
 vendor/*
 *.iml
-ontology-tool
 wallet.dat
 main

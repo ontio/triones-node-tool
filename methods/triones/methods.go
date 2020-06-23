@@ -20,8 +20,9 @@ package triones
 
 import (
 	"fmt"
-	"github.com/ontio/celo-ontid/common"
+
 	sdk "github.com/ontio/ontology-go-sdk"
+	"github.com/ontio/triones-node-tool/common"
 	"github.com/ontio/triones-node-tool/config"
 )
 
