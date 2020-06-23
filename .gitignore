@@ -1,0 +1,12 @@
+.idea/*
+idea/*
+temp/*
+build/
+*.patch
+*.log
+*.rej
+vendor/*
+*.iml
+ontology-tool
+wallet.dat
+main

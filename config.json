@@ -1,0 +1,8 @@
+{
+  "JsonRpcAddress":"http://localhost:20336",
+  "WalletPath": "wallet.dat",
+  "PeerPublicKey": "02d500543eaa4110b8d5f8df4fabe31a8caabaa58cb8512baa8af15a303606efe4",
+  "InitPos":100000,
+  "GasPrice":0,
+  "GasLimit":20000
+}
