@@ -2,13 +2,13 @@
 
 ## Instruction
 
-### 1.clone repo
+### 1. Clone repo
 
 ```shell
 git clone https://github.com/ontio/triones-node-tool.git
 ```
 
-### 2.build or download latest release
+### 2. Build or download latest release
 
 bulid:
 
@@ -20,7 +20,7 @@ or download latest release:
 
 https://github.com/ontio/triones-node-tool/releases
 
-### 3.update config file
+### 3. Update config file
 
 ```shell
 vim config.json
@@ -39,7 +39,7 @@ content of config.json：
 }
 ```
 
-`JsonRpcAddress`：rpc of ontology node
+`JsonRpcAddress`：rpc of ontology nodes
 
 for mainnet: 
 `"http://dappnode1.ont.io:20336","http://dappnode2.ont.io:20336","http://dappnode3.ont.io:20336","http://dappnode4.ont.io:20336",`
@@ -53,7 +53,7 @@ for polaris testnet:
 
 `InitPos`: init deposit
 
-### 4.run command line
+### 4. Run command line
 
 list of supported command line: 
 
