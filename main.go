@@ -19,7 +19,9 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"math/rand"
+	"os"
 	"strings"
 	"time"
 
@@ -44,10 +46,21 @@ func init() {
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
+	res, err := PathExists("log")
+	if err != nil {
+		fmt.Println("err:", err)
+	}
+	if !res {
+		err := os.MkdirAll("log", 0777)
+		if err != nil {
+			fmt.Println("err:", err)
+		}
+	}
+
 	log4.LoadConfiguration(LogConfig)
 	defer time.Sleep(time.Second)
 
-	err := config.DefConfig.Init(Config)
+	err = config.DefConfig.Init(Config)
 	if err != nil {
 		log4.Error("DefConfig.Init error:%s", err)
 		return
@@ -59,4 +72,17 @@ func main() {
 	}
 
 	core.OntTool.Start(methods)
+}
+
+//determine if a file or folder exists
+//if bool is true,the file or folder exists
+func PathExists(path string) (bool, error) {
+	_, err := os.Stat(path)
+	if err == nil {
+		return true, nil
+	}
+	if os.IsNotExist(err) {
+		return false, nil
+	}
+	return false, err
 }

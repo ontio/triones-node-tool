@@ -20,6 +20,7 @@ package triones
 
 import (
 	"fmt"
+	"time"
 
 	sdk "github.com/ontio/ontology-go-sdk"
 	"github.com/ontio/triones-node-tool/common"
@@ -27,6 +28,7 @@ import (
 )
 
 func RegisterTriones(ontSdk *sdk.OntologySdk) bool {
+	time.Sleep(1*time.Second)
 	user, ok := common.GetAccountByPassword(ontSdk, config.DefConfig.WalletPath)
 	if !ok {
 		return false
@@ -40,6 +42,7 @@ func RegisterTriones(ontSdk *sdk.OntologySdk) bool {
 }
 
 func QuitTriones(ontSdk *sdk.OntologySdk) bool {
+	time.Sleep(1*time.Second)
 	user, ok := common.GetAccountByPassword(ontSdk, config.DefConfig.WalletPath)
 	if !ok {
 		return false
@@ -53,6 +56,7 @@ func QuitTriones(ontSdk *sdk.OntologySdk) bool {
 }
 
 func WithdrawInitPos(ontSdk *sdk.OntologySdk) bool {
+	time.Sleep(1*time.Second)
 	user, ok := common.GetAccountByPassword(ontSdk, config.DefConfig.WalletPath)
 	if !ok {
 		return false
@@ -66,6 +70,7 @@ func WithdrawInitPos(ontSdk *sdk.OntologySdk) bool {
 }
 
 func WithdrawOng(ontSdk *sdk.OntologySdk) bool {
+	time.Sleep(1*time.Second)
 	user, ok := common.GetAccountByPassword(ontSdk, config.DefConfig.WalletPath)
 	if !ok {
 		return false
